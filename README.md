@@ -91,7 +91,7 @@ _For more examples, please refer to the [PHPUNIT](https://phpunit.de/) -
 
 ilhan - [@Ilhaneer](https://twitter.com/Ilhaneer) - ilhan.ersoy.ie@gmail.com
 
-Project Link: [https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd](https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd)
 
 
 
