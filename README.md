@@ -77,6 +77,8 @@ This app is being developed with TDD.
 
 This is a simple Forum app which peoples share a thread and reply to some threads.And in this app every endpoint or controller developed with tdd.
 
+You can review my test in [tests](https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd/tree/master/tests)
+
 
 _For more examples, please refer to the [PHPUNIT](https://phpunit.de/) -
 [Laravel](https://laravel.com/)
