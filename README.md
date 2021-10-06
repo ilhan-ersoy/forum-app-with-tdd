@@ -23,10 +23,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot-1]](https://example.com)
-[![Product Name Screen Shot][product-screenshot-2]](https://example.com)
-[![Product Name Screen Shot][product-screenshot-3]](https://example.com)
-[![Product Name Screen Shot][product-screenshot-4]](https://example.com)
+[![Product Name Screen Shot][product-screenshot-1]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/1.png)
+[![Product Name Screen Shot][product-screenshot-2]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/2.png)
+[![Product Name Screen Shot][product-screenshot-3]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/3.png)
+[![Product Name Screen Shot][product-screenshot-4]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/4.png)
 
 This app is being developed with TDD.
 
@@ -91,7 +91,7 @@ _For more examples, please refer to the [PHPUNIT](https://phpunit.de/) -
 
 ilhan - [@Ilhaneer](https://twitter.com/Ilhaneer) - ilhan.ersoy.ie@gmail.com
 
-Project Link: [https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd](https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd)
 
 
 
