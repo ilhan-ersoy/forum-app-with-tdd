@@ -33,7 +33,6 @@ This app is being developed with TDD.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [TailwindCSS](https://tailwindcss.com/)
 * [JQuery](https://jquery.com)
 * [Laravel](https://laravel.com)
@@ -92,7 +91,7 @@ _For more examples, please refer to the [PHPUNIT](https://phpunit.de/) -
 
 ilhan - [@Ilhaneer](https://twitter.com/Ilhaneer) - ilhan.ersoy.ie@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd](https://github.com/your_username/repo_name)
 
 
 
