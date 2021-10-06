@@ -23,10 +23,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot-1]](https://example.com)
-[![Product Name Screen Shot][product-screenshot-2]](https://example.com)
-[![Product Name Screen Shot][product-screenshot-3]](https://example.com)
-[![Product Name Screen Shot][product-screenshot-4]](https://example.com)
+[![Product Name Screen Shot][product-screenshot-1]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/1.png)
+[![Product Name Screen Shot][product-screenshot-2]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/2.png)
+[![Product Name Screen Shot][product-screenshot-3]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/3.png)
+[![Product Name Screen Shot][product-screenshot-4]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/4.png)
 
 This app is being developed with TDD.
 
