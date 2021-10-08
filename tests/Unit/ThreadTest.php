@@ -33,7 +33,7 @@ class ThreadTest extends TestCase
     /** @test */
     public function a_thread_has_creator()
     {
-        $user = User::factory()->create();
+        $user = create(User::class);
 
         $this->assertInstanceOf(User::class, $this->thread->creator);
     }

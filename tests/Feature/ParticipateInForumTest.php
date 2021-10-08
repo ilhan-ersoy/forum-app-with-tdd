@@ -12,17 +12,15 @@ class ParticipateInForumTest extends TestCase
 {
     use DatabaseMigrations;
 
-
     /** @test */
     public function an_authenticated_user_may_participate_in_forum_threads()
     {
         // Given me a authenticated user
-        $user = User::factory()->create();
-        $this->be($user);
+        $authenticatedUser = $this->signIn(create(User::class));
         // And a existing thread
-        $thread = Thread::factory()->create();
+        $thread = create(Thread::class);
         // When the user adds a replay to the thread
-        $reply = Reply::factory()->make();
+        $reply = make(Reply::class);
 
         $this->post("/threads/$thread->id/replies", $reply->toArray());
 

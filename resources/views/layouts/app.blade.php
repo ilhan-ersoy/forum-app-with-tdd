@@ -22,8 +22,13 @@
 <header class="border-b-2 flex items-center justify-between mb-5 px-8 py-4">
     <div class="flex items-center w-1/2 px-6 p-4">
         <a href="/threads"><img src="{{ asset('img/logo.svg') }}" alt=""></a>
-        <a href="/threads" class="ml-5 font-medium font-sans text-lg hover:text-blue-500  @if(request()->segment(1) === 'threads') text-blue-500 @endif">
+
+        <a href="/threads" class="ml-5 font-medium font-sans text-lg hover:text-blue-500  @if(request()->path() === 'threads')) text-blue-500 @endif">
             Homepage <i class="fa fa-home"></i>
+        </a>
+
+        <a href="/threads/create" class="ml-5 font-medium font-sans text-lg hover:text-blue-500  @if(request()->path() === 'threads/create')) text-blue-500 @endif">
+            Create <i class="fa fa-pencil"></i>
         </a>
     </div>
     <div class="flex items-center">

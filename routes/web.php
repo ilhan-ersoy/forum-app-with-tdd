@@ -1,16 +1,27 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThreadsController;
+use App\Http\Controllers\RepliesController;
 
 
-Route::get('/',[\App\Http\Controllers\ThreadsController::class,'index']);
+Route::get('/',[ThreadsController::class, 'index']);
 
 
-Route::get('/threads',[\App\Http\Controllers\ThreadsController::class,'index']);
-Route::get('/thread/{thread}',[\App\Http\Controllers\ThreadsController::class,'show']);
+Route::get('/threads',[ThreadsController::class, 'index']);
 
 
-Route::post('/threads/{thread}/replies', [\App\Http\Controllers\RepliesController::class,'store'])->middleware('auth');
+Route::get('/thread/{thread}',[ThreadsController::class, 'show']);
 
+Route::get('/threads/create', [ThreadsController::class, 'create']);
+
+Route::post('/threads/{thread}/replies', [RepliesController::class, 'store']);
+
+Route::post('/threads', [ThreadsController::class, 'store']);
+
+
+Route::get('/logout',function () {
+    return redirect('/threads');
+});
 
 require __DIR__.'/auth.php';
