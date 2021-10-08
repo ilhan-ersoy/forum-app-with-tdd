@@ -12,6 +12,7 @@ class CreateThreadsTest extends TestCase
 {
     use DatabaseMigrations;
     /** @test */
+    // threadss
     public function guest_may_not_create_thread()
     {
         $thread = create(Thread::class);
