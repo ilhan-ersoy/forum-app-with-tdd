@@ -8,11 +8,24 @@
         <br>
         <form method="POST" action = "/threads">
             @csrf
+            
             <div class="form-group p-4 m-2">
                 <div class="font-semibold text-gray-600 text-center mb-2 text-lg">
                     Title
                 </div>
                 <input placeholder="Title..." type="text" name="title" class="border-blue-400 placeholder-blue-500 p-2 w-full rounded-lg shadow">
+            </div>
+
+            <div class="form-group p-4 m-2">
+                <div class="font-semibold text-gray-600 text-center mb-2 text-lg">
+                    Channel
+                </div>
+
+                <select name="channel_id" class="border-blue-400 w-full placeholder-blue-500 text-blue-500 placeholder-blue-500 p-2 rounded-lg shadow">
+                    <option value="1">Channel 1</option>
+                    <option value="2">Channel 2</option>
+                    <option value="3">Channel 3</option>
+                </select>
             </div>
 
             <div class="form-group p-4 m-2 ">

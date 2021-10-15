@@ -13,7 +13,7 @@ class RepliesController extends Controller
         $this->middleware('auth')->only('store');
     }
 
-    public function store(Thread $thread)
+    public function store($channelId, Thread $thread)
     {
 
         $thread->addReply([
@@ -21,6 +21,7 @@ class RepliesController extends Controller
             'user_id' => auth()->id()
         ]);
 
-        return view('threads.show', compact('thread'));
+        return redirect()->back();
+
     }
 }

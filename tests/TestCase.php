@@ -18,5 +18,6 @@ abstract class TestCase extends BaseTestCase
         $this->actingAs($user);
 
         return $user;
+
     }
 }

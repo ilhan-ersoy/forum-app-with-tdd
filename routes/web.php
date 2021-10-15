@@ -6,19 +6,11 @@ use App\Http\Controllers\RepliesController;
 
 
 Route::get('/',[ThreadsController::class, 'index']);
-
-
 Route::get('/threads',[ThreadsController::class, 'index']);
-
-
-Route::get('/thread/{thread}',[ThreadsController::class, 'show']);
-
+Route::get('/thread/{channel}/{thread}',[ThreadsController::class, 'show'])->name('thread.show');
 Route::get('/threads/create', [ThreadsController::class, 'create']);
-
-Route::post('/threads/{thread}/replies', [RepliesController::class, 'store']);
-
+Route::post('/threads/{channel}/{thread}/replies', [RepliesController::class, 'store']);
 Route::post('/threads', [ThreadsController::class, 'store']);
-
 
 Route::get('/logout',function () {
     return redirect('/threads');
