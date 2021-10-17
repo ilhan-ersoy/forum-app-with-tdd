@@ -22,7 +22,7 @@ class CreateThreadsTest extends TestCase
     /** @test */
     public function guest_may_not_visit_thread_create_page()
     {
-        $this->get("/threads/create")->assertRedirect('/login');
+        $this->get("/threads/create")->assertRedirect('login');
     }
 
     /** @test */
@@ -30,7 +30,7 @@ class CreateThreadsTest extends TestCase
     {
         $this->actingAs(create(User::class));
 
-        $thread = make(Thread::class);
+        $thread = make(Thread::class, ['id' => 1]);
 
         $this->post('/threads', $thread->toArray());
 

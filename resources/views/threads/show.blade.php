@@ -30,7 +30,7 @@
 
 
     @if(auth()->check())
-            <form action="/threads/{{ $thread->channel }}/{{ $thread->id }}/replies" method="POST">
+            <form action="/threads/w{{ $thread->channel }}/{{ $thread->id }}/replies" method="POST">
                 <div class="w-full mb-2 text-center text-2xl">
                     Leave A Comment <i class="fa fa-comment text-blue-500"></i>
                 </div>

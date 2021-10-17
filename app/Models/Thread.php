@@ -15,7 +15,7 @@ class Thread extends Model
 
     public function path()
     {
-        return '/thread/' . $this->channel->slug . '/' . $this->id;
+        return '/threads/' . $this->channel->slug . '/' . $this->id;
     }
 
     public function replies()

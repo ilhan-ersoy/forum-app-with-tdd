@@ -27,13 +27,26 @@ class ParticipateInForumTest extends TestCase
         // And a existing thread
         $thread = create(Thread::class);
         // When the user adds a replay to the thread
-        $reply = make(Reply::class);
+        $reply = make(Reply::class, ['id' => 1]);
 
         $this->post("/threads/$thread->channel->slug/$thread->id/replies", $reply->toArray());
 
         // Then their reply should be visible on the page
         $response = $this->get($thread->path());
 
+        $response->assertSee($thread->title);
+        $response->assertSee($thread->body);
         $response->assertSee($reply->body);
+    }
+
+    /** @test */
+    public function a_reply_requires_a_body()
+    {
+        $this->signIn();
+        $thread = make(Thread::class,['id' => 1]);
+        $reply = make(Reply::class, ['id' => 1, 'body' => null]);
+
+        $this->post("/threads/$thread->channel->slug/$thread->id/replies", $reply->toArray())
+                ->assertSessionHasErrors('body');
     }
 }
