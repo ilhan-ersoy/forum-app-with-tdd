@@ -25,6 +25,12 @@
 
 [![Product Name Screen Shot][product-screenshot-1]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/1.png)
 
+[![Product Name Screen Shot][product-screenshot-4]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/4.png)
+[![Product Name Screen Shot][product-screenshot-5]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/3.png)
+[![Product Name Screen Shot][product-screenshot-3]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/3.png)
+
+
+
 ![Alt Text](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/2.gif)
 
 
@@ -114,10 +120,11 @@ Project Link: [https://github.com/ilhan-ersoy/laravel-forum-app-with-tdd](https:
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+
 [product-screenshot-1]: images/1.png
 [product-screenshot-2]: images/2.png
 [product-screenshot-3]: images/3.png
 [product-screenshot-4]: images/4.png
+[product-screenshot-5]: images/5.png
 
 
