@@ -11,7 +11,7 @@
 <h3 align="center">Laravel Forum App with TDD</h3>
 
   <p align="center">
-    Laravel & PHP & TailwindCSS
+    Laravel & PHP & TailwindCSS & AlpineJS
     <br />
   </p>
 </p>
