@@ -24,9 +24,10 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot-1]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/1.png)
-[![Product Name Screen Shot][product-screenshot-2]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/2.png)
-[![Product Name Screen Shot][product-screenshot-3]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/3.png)
-[![Product Name Screen Shot][product-screenshot-4]](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/4.png)
+
+![Alt Text](https://raw.githubusercontent.com/ilhan-ersoy/laravel-forum-app-with-tdd/master/images/2.gif)
+
+
 
 This app is being developed with TDD.
 
@@ -36,6 +37,7 @@ This app is being developed with TDD.
 * [TailwindCSS](https://tailwindcss.com/)
 * [JQuery](https://jquery.com)
 * [Laravel](https://laravel.com)
+* [AlpineJS](https://alpinejs.dev/)
 
 
 
@@ -56,7 +58,7 @@ This app is being developed with TDD.
 
 1. Clone the repo
    ```sh
-   git clone MY ADDRESS
+   git clone https://github.com/ilhan-ersoy/forum-app-with-tdd
    ```
 2. Composer
    ```sh
