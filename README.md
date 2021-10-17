@@ -78,7 +78,7 @@ This app is being developed with TDD.
    ```
     php artisan key:generate
    ```
-5. Set your database credentials in your .env file
+5. Set your own database credentials in your .env file
 
 <!-- USAGE EXAMPLES -->
 ## Usage
