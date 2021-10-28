@@ -5,9 +5,8 @@ namespace Tests\Feature;
 use App\Models\Channel;
 use App\Models\Reply;
 use App\Models\Thread;
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-
-use phpDocumentor\Reflection\Types\This;
 use Tests\TestCase;
 
 class ReadsThreadsTest extends TestCase
@@ -54,12 +53,27 @@ class ReadsThreadsTest extends TestCase
     /** @test */
     public function a_user_can_filter_threads_according_to_channel()
     {
+        $this->signIn();
         $channel = create(Channel::class);
         $threadInChannel = create(Thread::class, ['channel_id' => $channel->id]);
         $threadInNotChannel = create(Thread::class);
         $this->get('/threads/' . $channel->slug)
             ->assertSee($threadInChannel->title)
             ->assertDontSee($threadInNotChannel->title);
+    }
+
+    /** @test */
+        public function a_user_can_filter_threads_by_username()
+    {
+        $this->signIn(create(User::class,['name'=>'Ilhan']));
+
+        $threadByIlhan = create(Thread::class, ['user_id' => auth()->id()]);
+        $threadByNotIlhan = create(Thread::class);
+
+        $this->get('/threads?by=Ilhan')
+            ->assertSee($threadByIlhan->title)
+            ->assertDontSee($threadByNotIlhan->title);
+
     }
 
 

@@ -12,8 +12,8 @@ abstract class TestCase extends BaseTestCase
 
     // Sign In
 
-    protected function signIn($user = null) {
-        $user = $user ?: create(User::class);
+    protected function signIn($user = null, $attributes = []) {
+        $user = $user ?: create(User::class, $attributes);
 
         $this->actingAs($user);
 
