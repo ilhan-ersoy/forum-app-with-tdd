@@ -1,56 +1,64 @@
 <x-app-layout>
-    <div class="w-full bg-white border-gray-200 border shadow p-5 p-6">
-        <div class="text-2xl font-semibold p-5  border-b-2 border-gray-200 mb-4">
-            <a href="#" class="text-blue-400 hover:underline">{{ $thread->creator->name }}</a> posted :
-            {{ $thread->title }}
-        </div>
+    <div class="flex">
+        <div class="w-2/3">
+            <div class="w-full bg-white border-gray-200 border shadow p-6">
+                <div class="font-semibold p-5 border-b-2 border-gray-200 mb-4">
+                    <a href="#" class="text-blue-400 hover:underline">{{ $thread->creator->name }}</a> posted :
+                    {{ $thread->title }}
+                </div>
 
-        <div class="p-4 text-lg">
-            {{ $thread->body }}
-        </div>
+                <div class="p-4 ">
+                    {{ $thread->body }}
+                </div>
 
-    </div>
+            </div>
 
-    @if ($thread->replies->count() > 0)
-        <div class="text-center w-full font-bold text-gray-500 m-4 text-2xl">
-            Replies
-        </div>
-    @else
-        <div class="text-center w-full font-bold text-gray-500 m-4 text-2xl">
-            No replies yet ...
-        </div>
-    @endif
+            @if ($thread->replies->count() > 0)
+                <div class="text-center w-full font-bold text-gray-500 m-4 text-2xl">
+                    Replies
+                </div>
+            @else
+                <div class="text-center w-full font-bold text-gray-500 m-4 text-2xl">
+                    No replies yet ...
+                </div>
+            @endif
 
-    @foreach ($thread->replies as $reply)
+            @foreach ($replies as $reply)
 
-        @include('threads.reply')
+                @include('threads.reply')
 
-    @endforeach
+            @endforeach
 
-    <div x-data="{ open: false }"
-         class="w-full bg-white hover:shadow hover:border-gray-300 transition ease-in duration-100 border-gray-200 border mt-2 p-5 p-6">
-        <button @click="open = !open" class="w-full mb-2 text-center text-2xl" >
-            Leave A Comment <i class="fa fa-comment text-blue-500"></i>
-        </button>
-        @if(auth()->check())
-                <form  x-show.transition.duration.300ms="open" action="/threads/w{{ $thread->channel }}/{{ $thread->id }}/replies" method="POST">
+            <div class="my-2">
+                {{ $replies->links() }}
+            </div>
+
+            @if(auth()->check())
+                <form action="/threads/w{{ $thread->channel }}/{{ $thread->id }}/replies" method="POST">
                     @csrf
-                    <textarea placeholder="Have something to say ?" id="body" class="w-full shadow placeholder-blue-500 border-blue-400 rounded-lg p-4" name="body" cols="30" rows="10"></textarea>
+                    <textarea placeholder="Have something to say ?" id="body" class="w-full border-none shadow placeholder-blue-500 focus:outline-none rounded-lg p-4" name="body" cols="30" rows="10"></textarea>
+
                     <div class="text-center">
                         <button type="submit"
                                 class="flex items-center justify-center shadow mt-2 w-full bg-blue-200 hover:bg-blue-400 rounded hover:border-white hover:text-white hover:font-semibold transition ease-in duration-150 p-2">
-
                             <span>Send Comment</span>
                             <img class="w-8 ml-2 " src="https://img.icons8.com/external-sbts2018-flat-sbts2018/58/000000/external-comment-social-media-basic-1-sbts2018-flat-sbts2018.png"/>
 
                         </button>
                     </div>
                 </form>
-        @else
+            @else
                 <p class="w-full text-center ">
                     Please <a href="/login" class="text-blue-500 hover:underline">Sign</a> In For Leave A Comment !
                 </p>
-        @endif
-    </div>
+            @endif
 
+        </div>
+        <div class="w-1/3 ml-4 bg-white border-gray-200 border shadow p-5 text-gray-500 font-bold max-h-64 ">
+            This threads published <span class="text-blue-500 hover:underline">{{ $thread->created_at->diffForHumans()  }}</span>
+            by <a href="#" class="text-blue-500 hover:underline">{{ $thread->creator->name }}</a>
+            and currently has
+            <span class="text-blue-500 hover:underline">{{$thread->replyCount}} {{ \Illuminate\Support\Str::plural('comment', $thread->replyCount) }}</span>
+        </div>
+    </div>
 </x-app-layout>

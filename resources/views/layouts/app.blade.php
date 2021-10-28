@@ -50,10 +50,9 @@
         </a>
     </div>
 </header>
+
 <main class="container mx-auto" style="max-width: 1300px">
-
     {{ $slot }}
-
 </main>
 
 @yield('extra-js')

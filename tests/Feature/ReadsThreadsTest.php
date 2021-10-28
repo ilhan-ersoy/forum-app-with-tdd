@@ -76,6 +76,25 @@ class ReadsThreadsTest extends TestCase
 
     }
 
+    /** @test */
+    public function a_user_can_filter_threads_by_popularity()
+    {
+        $this->signIn();
+        $threadWithTwoReplies = create('App\Models\Thread');
+        create('App\Models\Reply',['thread_id' => $threadWithTwoReplies->id],3);
+
+        $threadWithThreeReplies = create('App\Models\Thread');
+        create('App\Models\Reply',['thread_id' => $threadWithThreeReplies->id],3);
+
+        $threadWithNoReplies = $this->thread;
+
+        $this->withoutExceptionHandling();
+
+        $response = $this->getJson('/threads?popularity=1')->json();
+
+        dd($response);
+    }
+
 
 }
 
