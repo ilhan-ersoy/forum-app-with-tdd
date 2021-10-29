@@ -58,7 +58,7 @@
             This threads published <span class="text-blue-500 hover:underline">{{ $thread->created_at->diffForHumans()  }}</span>
             by <a href="#" class="text-blue-500 hover:underline">{{ $thread->creator->name }}</a>
             and currently has
-            <span class="text-blue-500 hover:underline">{{$thread->replyCount}} {{ \Illuminate\Support\Str::plural('comment', $thread->replyCount) }}</span>
+            <span class="text-blue-500 hover:underline">{{$thread->replies_count}} {{ \Illuminate\Support\Str::plural('comment', $thread->replies_count) }}</span>
         </div>
     </div>
 </x-app-layout>

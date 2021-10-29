@@ -81,18 +81,16 @@ class ReadsThreadsTest extends TestCase
     {
         $this->signIn();
         $threadWithTwoReplies = create('App\Models\Thread');
-        create('App\Models\Reply',['thread_id' => $threadWithTwoReplies->id],3);
+        create('App\Models\Reply',['thread_id' => $threadWithTwoReplies->id],2);
 
         $threadWithThreeReplies = create('App\Models\Thread');
         create('App\Models\Reply',['thread_id' => $threadWithThreeReplies->id],3);
 
         $threadWithNoReplies = $this->thread;
 
-        $this->withoutExceptionHandling();
-
         $response = $this->getJson('/threads?popularity=1')->json();
 
-        dd($response);
+        $this->assertEquals([3,2,0], array_column($response, 'replies_count'));
     }
 
 

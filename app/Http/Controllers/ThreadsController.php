@@ -20,6 +20,10 @@ class ThreadsController extends Controller
 
         $threads = $this->getThreads($channel);
 
+        if (request()->wantsJson()){
+            return $threads;
+        }
+
         return view('threads.index',compact('threads'));
     }
 
@@ -33,7 +37,6 @@ class ThreadsController extends Controller
 
     public function store(Request $request)
     {
-
         // VALIDATION ....
         $this->validate($request, [
             'title' => 'required',
@@ -68,9 +71,12 @@ class ThreadsController extends Controller
         if (request()->get('by')) {
             $user = User::where('name', request()->get('by'))->firstOrFail();
             $threads->where('user_id', $user->id);
+        }elseif(request()->get('popularity')){
+            $threads = Thread::withCount('replies')->orderBy("replies_count", "desc");
         }
 
         $threads = $threads->get();
+
         return $threads;
     }
 

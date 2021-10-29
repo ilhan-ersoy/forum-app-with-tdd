@@ -13,7 +13,7 @@ class ReplyTest extends TestCase
     // tests
 
     /** @test */
-    public function it_has_an_owner()
+    public function a_reply_has_an_owner()
     {
         $reply = create(Reply::class);
 
@@ -21,4 +21,7 @@ class ReplyTest extends TestCase
         $this->assertTrue(true);
 
     }
+
+
+
 }

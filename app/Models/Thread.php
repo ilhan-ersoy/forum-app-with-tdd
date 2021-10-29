@@ -12,7 +12,7 @@ class Thread extends Model
     use HasFactory;
 
     protected $guarded = [];
-
+    protected $appends = ['replies_count'];
     public function path()
     {
         return '/threads/' . $this->channel->slug . '/' . $this->id;
@@ -23,7 +23,7 @@ class Thread extends Model
         return $this->hasMany(Reply::class);
     }
 
-    public function getReplyCountAttribute()
+    public function getRepliesCountAttribute()
     {
         return $this->replies()->count();
     }

@@ -12,7 +12,7 @@
                         </h4>
 
                         <strong class="m-3 float-right text-gray-500 flex items-center">
-                            {{ $thread->replyCount }} {{ \Illuminate\Support\Str::plural('reply', $thread->replyCount) }} <img class="ml-2" src="https://img.icons8.com/external-sbts2018-flat-sbts2018/26/000000/external-comment-social-media-basic-1-sbts2018-flat-sbts2018.png"/>
+                            {{ $thread->replies_count }} {{ \Illuminate\Support\Str::plural('reply', $thread->replies_count) }} <img class="ml-2" src="https://img.icons8.com/external-sbts2018-flat-sbts2018/26/000000/external-comment-social-media-basic-1-sbts2018-flat-sbts2018.png"/>
                         </strong>
                     </div>
 
