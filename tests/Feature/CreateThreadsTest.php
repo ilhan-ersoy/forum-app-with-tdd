@@ -76,4 +76,17 @@ class CreateThreadsTest extends TestCase
         return $this->post('/threads', $thread->toArray());
     }
 
+    /** @test */
+    public function a_thread_can_be_deleted()
+    {
+        $thread = create('App\Models\Thread');
+
+        $this->post("/threads/$thread->id/delete");
+
+        $this->assertDatabaseMissing('threads', $thread->toArray());
+
+        $this->get($thread->path())->assertStatus(404);
+    }
+
+
 }

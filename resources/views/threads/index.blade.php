@@ -8,7 +8,7 @@
                 <div class="level">
                     <div class="flex items-center justify-between">
                         <h4 class="mb-2 font-bold text-blue-400 flex max-w-2xl items-center justify-between text-xl hover:underline">
-                            <a href="{{ $thread->path() }}">{{ $thread->title }}</a>
+                            <a href="{{ $thread->path() }}">{{ $thread->title }}</a>,
                         </h4>
 
                         <strong class="m-3 float-right text-gray-500 flex items-center">

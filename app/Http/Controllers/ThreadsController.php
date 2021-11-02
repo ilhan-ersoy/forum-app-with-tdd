@@ -17,14 +17,14 @@ class ThreadsController extends Controller
 
     public function index(Channel $channel)
     {
-
         $threads = $this->getThreads($channel);
 
+//        return $channel;
         if (request()->wantsJson()){
             return $threads;
         }
 
-        return view('threads.index',compact('threads'));
+        return view('threads.index',compact(['threads']));
     }
 
     public function show($channId, Thread $thread)
@@ -59,20 +59,28 @@ class ThreadsController extends Controller
         return view('threads.create');
     }
 
+    public function destroy(Thread $thread)
+    {
+        $thread->delete();
+
+        return redirect()->back();
+    }
+
     public function getThreads(Channel $channel)
     {
+
         if ($channel->exists) {
             $threads = $channel->threads()->latest();
         } else {
-            $threads = Thread::latest();
+            $threads = Thread::with(['replies','creator','channel'])->latest();
         }
 
 
         if (request()->get('by')) {
             $user = User::where('name', request()->get('by'))->firstOrFail();
-            $threads->where('user_id', $user->id);
+            $threads->with(['replies','creator','channel'])->where('user_id', $user->id);
         }elseif(request()->get('popularity')){
-            $threads = Thread::withCount('replies')->orderBy("replies_count", "desc");
+            $threads = Thread::withCount('replies')->with(['replies','channel'])->orderBy("replies_count", "desc");
         }
 
         $threads = $threads->get();
