@@ -42,9 +42,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getRouteKeyName()
+    {
+        return "name";
+    }
+
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function path()
+    {
+        return "profiles/$this->name";
+    }
+
+    public function threads()
+    {
+        return $this->hasMany(Thread::class)->latest();
     }
 
 }

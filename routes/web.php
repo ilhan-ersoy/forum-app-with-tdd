@@ -16,12 +16,12 @@ Route::post('/threads', [ThreadsController::class, 'store']);
 Route::post('/threads/{thread}/delete', [ThreadsController::class, 'destroy']);
 Route::post('/replies/{reply}/favorites', [FavoritesController::class, 'store']);
 
+Route::get('/profiles/{user}',[ProfilesController::class, 'show']);
+
+
+require __DIR__.'/auth.php';
 
 Route::get('/clear-cache', function() {
     \Illuminate\Support\Facades\Artisan::call('cache:clear');
     return "Cache is cleared";
 });
-
-Route::get('/profiles/{user}',[ProfilesController::class, 'show']);
-
-require __DIR__.'/auth.php';
