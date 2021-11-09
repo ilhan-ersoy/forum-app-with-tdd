@@ -19,6 +19,7 @@ class CreateRepliesTable extends Migration
             $table->foreignId('user_id');
             $table->text('body');
             $table->timestamps();
+
         });
     }
 

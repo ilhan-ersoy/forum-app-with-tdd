@@ -1,9 +1,8 @@
 <x-app-layout>
     <div class="w-2/3 mx-auto ">
-        <div class="text-2xl text-gray-500 bg-white border-gray-200 border shadow p-5 p-6 font-semibold p-5 border-b-2 border-gray-200 mb-4">
-            {{ auth()->user()->name ? 'Your Threads' : 'All Threads'  }}
-        </div>
-        @foreach ($threads as $thread)
+
+        @forelse ($threads as $thread)
+
             <article class="my-4 p-7 bg-white border-gray-200 border shadow">
                 <div class="level">
                     <div class="flex items-center justify-between">
@@ -19,7 +18,11 @@
                     <div class="text-lg">{{ $thread->body }}</div>
                 </div>
             </article>
-        @endforeach
+        @empty
+            <div class="text-2xl text-gray-500 bg-white border-gray-200 border shadow p-5 p-6 font-semibold p-5 border-b-2 border-gray-200 mb-4">
+                No Results
+            </div>
+        @endforelse
     </div>
 
 </x-app-layout>

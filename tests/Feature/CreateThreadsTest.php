@@ -25,6 +25,7 @@ class CreateThreadsTest extends TestCase
         $this->get("/threads/create")->assertRedirect('login');
     }
 
+
     /** @test */
     public function an_unauthenticated_user_can_create_new_forum_threads()
     {
@@ -61,10 +62,8 @@ class CreateThreadsTest extends TestCase
         $this->publishThread(['channel_id' => null, 'id' => 1])
             ->assertSessionHasErrors('channel_id');
 
-        $this->publishThread(['id' => 1, 'channel_id' => 999 ])
+        $this->publishThread(['id' => 1, 'channel_id' => 999])
             ->assertSessionHasErrors('channel_id');
-
-
     }
 
     public function publishThread($overrides = [])
@@ -77,16 +76,35 @@ class CreateThreadsTest extends TestCase
     }
 
     /** @test */
-    public function a_thread_can_be_deleted()
+    public function unauthorized_users_may_not_delete_threads()
     {
         $thread = create('App\Models\Thread');
 
-        $this->post("/threads/$thread->id/delete");
+        $this->delete($thread->path())->assertRedirect('/login');
+
+        $this->signIn();
+        $this->delete($thread->path())->assertStatus(403);
+    }
+
+
+    /** @test */
+    public function authorized_users_can_delete_threads()
+    {
+        $user = $this->signIn();
+
+        $thread = create('App\Models\Thread', ['user_id' => $user->id]);
+
+//        dd($user, $thread);
+
+        $reply = create('App\Models\Reply', ['thread_id' => $thread->id]);
+
+        $this->delete($thread->path());
 
         $this->assertDatabaseMissing('threads', $thread->toArray());
 
-        $this->get($thread->path())->assertStatus(404);
+        $this->assertDatabaseMissing('replies', $reply->toArray());
     }
+
 
 
 }

@@ -5,11 +5,11 @@
             said {{ $reply->created_at->diffForHumans() }}
             <i class="fa text-blue-500 text-lg fa-comment mx-2"></i>
         </div>
-        <div class="favorite float-right flex items-center border-2 border-gray-300 rounded-lg hover:shadow cursor-pointer p-2 rounded-lg">
+        <div class="favorite float-right flex items-center border-2 border-gray-300 rounded-lg hover:shadow cursor-pointer p-1 rounded-lg">
             <form action="/replies/{{$reply->id}}/favorites" method="POST">
                 @csrf
                 {{ $reply->favorites()->count() }}
-                <button type="submit" {{ $reply->isFavorited() ? 'disabled' : '' }} class="font-mono text-sm">{{ \Illuminate\Support\Str::plural('Favorite', $reply->favorites()->count()) }}</button>
+                <button type="submit" {{ $reply->isFavorited() ? 'disabled' : '' }} class="font-mono p-0 text-sm">{{ \Illuminate\Support\Str::plural('Favorite', $reply->favorites()->count()) }}</button>
 {{--                <img class="mb-2" src="https://img.icons8.com/external-sbts2018-blue-sbts2018/30/000000/external-favorite-social-media-basic-1-sbts2018-blue-sbts2018.png"/>--}}
             </form>
         </div>

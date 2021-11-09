@@ -3,14 +3,20 @@
         <div class="w-2/3">
             <div class="w-full bg-white border-gray-200 border shadow p-6">
                 <div class="font-semibold p-5 border-b-2 border-gray-200 mb-4">
-                    <a href="#" class="text-blue-400 hover:underline">{{ $thread->creator->name }}</a> posted :
+                    <a href="/profiles/{{ $thread->creator->name }}" class="text-blue-400 hover:underline">{{ $thread->creator->name }}</a> posted :
                     {{ $thread->title }}
+                    @can('update', $thread)
+                        <form action="{{ $thread->path() }}" method="POST" class="float-right">
+                            @method('DELETE')
+                            @csrf
+                            <button class="text-blue-500 cursor-pointer hover:underline m-2">Delete</button>
+                        </form>
+                    @endcan
                 </div>
 
                 <div class="p-4 ">
                     {{ $thread->body }}
                 </div>
-
             </div>
 
             @if ($thread->replies->count() > 0)
@@ -56,7 +62,7 @@
         </div>
         <div class="w-1/3 ml-4 bg-white border-gray-200 border shadow p-5 text-gray-500 font-bold max-h-64 ">
             This threads published <span class="text-blue-500 hover:underline">{{ $thread->created_at->diffForHumans()  }}</span>
-            by <a href="#" class="text-blue-500 hover:underline">{{ $thread->creator->name }}</a>
+            by <a href="/profiles/{{ $thread->creator->name }}" class="text-blue-500 hover:underline">{{ $thread->creator->name }}</a>
             and currently has
             <span class="text-blue-500 hover:underline">{{$thread->replies_count}} {{ \Illuminate\Support\Str::plural('comment', $thread->replies_count) }}</span>
         </div>

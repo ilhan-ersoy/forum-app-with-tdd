@@ -23,7 +23,7 @@ class Reply extends Model
 
     public function favorites()
     {
-        return $this->morphMany('App\Models\Favorite','favorite');
+        return $this->morphMany('App\Models\Favorite','favorited');
     }
 
     public function favorite()
